@@ -76,11 +76,7 @@ for msg in consumer:
             "n"    : {"$sum": 1}
          }}
        ])
-       db.books_summaryComments.delete_many({})
-       for i in agg_result:
-         print(i)
-         summaryComments_id= db.books_summaryComments.insert_one(i)
-         print("Comment inserted  with record  ids",summaryComments_id)
+       
     except Exception as e:
        print(f'group by caught {type(e)}: ')
        print(e)
